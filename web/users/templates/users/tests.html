@@ -1,0 +1,33 @@
+{% extends 'users/main.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    
+    {% for test in tests %}
+    <div class="row justify-content-center">
+        <div class="col-md-3 mt-3 border-top border-bottom">
+            <div class="card-body">
+                <h5 class="card-title">Tested on: {{test.timestamp}} </h5>
+                <h5 class="card-title">Test id: {{test.id}}</h5>
+            </div>
+        </div>
+        <div class="col-md-3 mt-3 border-left border-top border-bottom" >
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="{{test.image.url}}" alt="">
+            </div>
+        </div>
+        <div class="col-md-6 mt-3 border-left border-top border-bottom" >
+            <div class="card" style="width: 55rem;">
+                <img class="card-img-top" src="/{{test.resulturl}}" alt="">
+            </div>
+            <input id="clickbutton" type="button" value="Large Image" onclick="showimage('/{{test.resulturl}}')" /> 
+        </div>
+        <!-- <div class="col-md-2 mt-3 d-flex align-items-center border-top border-bottom border-right">
+        <a href="/removefromcart/{{cartitem.id}}/" class="btn btn-warning"></a>
+        </div> -->
+    </div>
+    {% endfor %}
+    </div>
+    
+</div>
+{% endblock %}
